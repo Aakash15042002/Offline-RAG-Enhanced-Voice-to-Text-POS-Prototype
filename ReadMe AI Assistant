@@ -1,1 +1,133 @@
+# Voice Assistant with Wake Word ("Sonic")
+
+This project is a simple voice-based assistant that listens for a wake word ("sonic") and executes commands such as opening/closing applications, telling the time, and playing YouTube videos.
+
+---
+
+## 🚀 Features
+- Wake word detection ("sonic")
+- Open & close applications (Chrome, Edge, Notepad, Calculator)
+- Play YouTube videos
+- Report current time
+- Stop assistant with voice command ("stop")
+
+---
+
+## 🏗️ Architecture
+1. **Speech Recognition (speech_recognition)**  
+   - Captures audio input from the microphone.  
+   - Converts speech to text using Google Speech API.  
+
+2. **Wake Word Detection**  
+   - Continuously listens until "sonic" is spoken.  
+
+3. **Command Handler**  
+   - Parses text input and decides action (open/close/play/time).  
+
+4. **Action Execution**  
+   - Uses subprocess and system calls to launch or close apps.  
+   - Uses `pywhatkit` to play YouTube videos.  
+
+5. **Text-to-Speech (pyttsx3)**  
+   - Provides voice feedback for each action.  
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Install Dependencies
+```bash
+Note: If pyaudio fails on Windows, install with:
+
+pip install SpeechRecognition pyttsx3 pywhatkit pyaudio
+pip install pipwin
+pipwin install pyaudio
+2. Run the Assistant
+python voice_assistant.py
+🎙️ Usage
+
+Run the program.
+
+Say "sonic" to activate the assistant.
+
+Give commands like:
+
+"open chrome"
+
+"close notepad"
+
+"what is the time"
+
+"play shape of you"
+
+"stop"
+
+🧪 Example Run
+Listening for wake word ("sonic")...
+User: sonic
+Assistant: Hi Sir, How can I help you?
+User: open notepad
+Assistant: Opening Notepad...
+User: close notepad
+Assistant: Closing Notepad...
+User: stop
+Assistant: Stopping the program. Goodbye!
+
+
+---
+
+## 📑 Report (1–2 Pages)  
+
+### **Voice Assistant Report**
+
+#### **Introduction**
+This project implements a basic voice-controlled assistant that activates upon hearing a wake word ("sonic"). It integrates speech recognition, natural language command parsing, and system-level automation. The assistant can open/close common software, tell the current time, and play YouTube videos.
+
+---
+
+#### **Challenges**
+1. **Background Noise** – Microphone often picked up unwanted noise, reducing recognition accuracy.  
+2. **Wake Word False Positives** – Words similar to "sonic" sometimes triggered the system.  
+3. **Accent & Pronunciation Variations** – Different accents affected recognition consistency.  
+4. **Command Parsing** – Extracting intent from free speech required simplifying input phrases.  
+
+---
+
+#### **Trade-offs**
+- Used **Google Speech Recognition API** (free & easy) vs. offline solutions like **Vosk**. Trade-off: better accuracy online, but needs internet.  
+- Chose **pyttsx3** for text-to-speech since it works offline. Trade-off: limited naturalness compared to cloud-based voices.  
+- Commands are **rule-based (if-else)** rather than ML/NLP models. Trade-off: simple but limited flexibility.  
+
+---
+
+#### **Possible Improvements**
+1. Add **NLU (Natural Language Understanding)** with spaCy or transformers for smarter intent detection.  
+2. Improve **wake word detection** using libraries like Snowboy or Porcupine.  
+3. Support **custom commands** stored in JSON (configurable assistant).  
+4. Add **GUI dashboard** to show recognized commands and assistant status.  
+5. Expand functionality (e.g., weather, reminders, email).  
+
+---
+
+#### **Conclusion**
+This project demonstrates a functional end-to-end voice assistant with wake word activation and command execution. While limited in scope, it highlights the challenges of speech recognition and real-time automation. With improved NLP and wake word detection, it can evolve into a more robust personal assistant.
+
+---
+
+## 🧪 Testing Plan
+
+| **Test Case** | **Audio Input (spoken)** | **Expected Output** |
+|---------------|--------------------------|----------------------|
+| Wake word detection | "sonic" | Assistant responds: *Hi Sir, How can I help you?* |
+| Open Chrome | "open chrome" | Chrome browser opens; assistant says: *Opening Chrome...* |
+| Close Chrome | "close chrome" | Chrome closes; assistant says: *Closing Chrome...* |
+| Tell time | "what is the time" | Assistant speaks current time |
+| Play song | "play despacito" | YouTube opens and plays Despacito |
+| Exit | "stop" | Assistant says: *Stopping the program. Goodbye!* and exits |
+
+---
+
+✅ That covers README, report, and test cases.  
+
+Do you want me to **format the report into a Word/PDF file** so you can directly submit it
 
