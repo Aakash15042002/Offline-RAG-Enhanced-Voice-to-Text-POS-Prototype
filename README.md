@@ -143,4 +143,4 @@ This project demonstrates a **functional end-to-end voice ordering system** with
 
 ---
 
-👉 Would you like me to also **generate a ready-made `order.wav` sample file** (synthetic voice saying *"I want 1 coffee 2 milk 3 bread"*) so you can test immediately?
+👉 Would you like me to also **generate a ready-made `order.wav` sample file** (synthetic voice saying *"I want 1 coffee "*) so you can test immediately?
