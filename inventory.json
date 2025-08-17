@@ -1,0 +1,12 @@
+[
+    {"name": "coffee", "price": 3, "description": "Hot brewed coffee"},
+    {"name": "tea", "price": 2, "description": "Refreshing black tea"},
+    {"name": "milk", "price": 4, "description": "Fresh milk"},
+    {"name": "bread", "price": 5, "description": "Whole wheat bread"},
+    {"name": "sandwich", "price": 6, "description": "Veg sandwich"},
+    {"name": "cake", "price": 7, "description": "Chocolate cake"},
+    {"name": "juice", "price": 3, "description": "Fresh juice"},
+    {"name": "cookie", "price": 1, "description": "Chocolate chip cookie"},
+    {"name": "water", "price": 1, "description": "Bottled water"},
+    {"name": "soda", "price": 2, "description": "Soft drink"}
+]
