@@ -1,0 +1,121 @@
+🎤 Offline Voice Assistant using Vosk
+📌 Overview
+
+This project implements an offline voice assistant that listens to microphone input, transcribes speech into text using the Vosk speech recognition model, and executes basic commands (like opening/closing software, reporting time, or processing orders). Unlike cloud-based speech APIs, this runs fully offline.
+
+⚙️ Architecture
+
+Input Layer
+
+Audio is captured from the system microphone using PyAudio.
+
+Speech Recognition
+
+Vosk model (vosk-model-small-en-in-0.4) is used with KaldiRecognizer.
+
+Converts spoken words into real-time text.
+
+Command Processor
+
+Interprets text and maps to actions (e.g., "open chrome", "close notepad", "time").
+
+Output Layer
+
+Responds with text-to-speech feedback (pyttsx3).
+
+Displays recognized text in the console.
+
+🛠️ Setup Instructions
+
+Install dependencies
+
+pip install vosk pyaudio pyttsx3 pywhatkit
+
+
+Download Vosk model
+
+Download vosk-model-small-en-in-0.4
+
+Extract it into ./Vosk/vosk-model-small-en-in-0.4
+
+Run the program
+
+python voice_assistant.py
+
+▶️ Run Instructions
+
+The system listens for your voice.
+
+Example commands:
+
+"open chrome" → Launches Chrome browser
+
+"close notepad" → Closes Notepad
+
+"time" → Speaks current time
+
+"stop" → Exits assistant
+
+🧪 Testing
+Sample Input (voice → text)
+
+🎙️ User says:
+
+open chrome
+
+Expected Output (console + TTS)
+✅ Final Result: open chrome
+[Assistant]: Opening Chrome...
+
+
+🎙️ User says:
+
+time
+
+Expected Output
+✅ Final Result: time
+[Assistant]: It is 03:45 PM
+
+
+🎙️ User says:
+
+stop
+
+Expected Output
+✅ Final Result: stop
+[Assistant]: Stopping the program. Goodbye!
+
+📄 Report
+1. Challenges
+
+Audio Format Restrictions: Vosk requires mono PCM WAV at 8kHz or 16kHz; incorrect input caused errors.
+
+Background Noise: Recognition accuracy dropped in noisy environments.
+
+Command Parsing: Free speech is hard to parse into commands, so we restricted to keywords (“open”, “close”, “time”).
+
+2. Trade-offs
+
+Offline vs. Online:
+
+Offline (Vosk) → Privacy, no internet required, but larger models and slower on weak CPUs.
+
+Online (Google Speech API) → More accurate, but needs internet.
+
+Lightweight Model vs. Large Model:
+
+Small model (vosk-model-small-en-in-0.4) is fast but less accurate.
+
+Larger models are accurate but need more RAM/CPU.
+
+3. Improvements
+
+Add wake word detection (“Hey Sonic”) before processing commands.
+
+Extend inventory/order handling (e.g., “add 2 coffees, 1 bread”).
+
+Integrate with a GUI or Web Dashboard for better interaction.
+
+Add multilingual support by switching Vosk models.
+
+✅ End-to-End functionality is tested with sample audio inputs (order.wav, live mic speech).
