@@ -1,0 +1,1 @@
+# Offline-RAG-Enhanced-Voice-to-Text-POS-Prototype
